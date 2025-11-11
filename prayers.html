@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Prayers - KSJI Cadet Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo-section">
+                <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 1rem;">
+                    <img src="images/logo.png" alt="KSJi Logo" class="logo">
+                    <span class="site-name">KSJI Cadet Portal</span>
+                </a>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="window.history.back()">Back</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content-container">
+        <div class="content-header">
+            <h1>Our Prayers</h1>
+            <p>Spiritual wisdom and collective prayers of the KSJI Cadet group</p>
+        </div>
+
+        <div id="prayersContainer" class="collapsible-container">
+            <!-- Prayers will be loaded here -->
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 KSJI Cadet Group. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadPrayers();
+        });
+
+        function loadPrayers() {
+            fetch('data/prayers.json')
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('prayersContainer');
+                    container.innerHTML = '';
+                    
+                    data.prayers.forEach(prayer => {
+                        const prayerItem = document.createElement('div');
+                        prayerItem.className = 'collapsible-item';
+                        prayerItem.innerHTML = `
+                            <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                                <h3>${prayer.title}</h3>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p>${prayer.content}</p>
+                            </div>
+                        `;
+                        container.appendChild(prayerItem);
+                    });
+                })
+                .catch(error => console.error('Error loading prayers:', error));
+        }
+
+        function toggleCollapsible(header) {
+            const item = header.parentElement;
+            item.classList.toggle('active');
+            
+            const icon = header.querySelector('.toggle-icon');
+            icon.textContent = item.classList.contains('active') ? '−' : '+';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KSJi Cadet Portal - Home</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo-section">
+                <img src="images/logo.png" alt="KSJi Logo" class="logo">
+                <span class="site-name">KSJI Cadet Portal</span>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" id="loginBtn">Login</button>
+                <button class="btn btn-primary" id="signupBtn">Sign Up</button>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to KSJI Cadet Portal</h1>
+                <p class="motto">"Excellence in Character and Service"</p>
+            </div>
+        </section>
+
+        <section class="content-sections">
+            <div class="section-card">
+                <h2>Our Prayers</h2>
+                <p>Connect with our spiritual traditions and collective prayers.</p>
+                <button class="btn btn-secondary" onclick="window.location.href='prayers.html'">View More</button>
+            </div>
+
+            <div class="section-card">
+                <h2>Meeting Rites</h2>
+                <p>Learn about our formal meeting procedures and protocols.</p>
+                <button class="btn btn-secondary" onclick="window.location.href='meeting.html'">View More</button>
+            </div>
+
+            <div class="section-card">
+                <h2>Pledge & Anthem</h2>
+                <p>Discover the significance of our pledge and group anthem.</p>
+                <button class="btn btn-secondary" onclick="window.location.href='pledge.html'">View More</button>
+            </div>
+
+            <div class="section-card">
+                <h2>Songs</h2>
+                <p>Explore our collection of group songs and melodies.</p>
+                <button class="btn btn-secondary" onclick="window.location.href='songs.html'">View More</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 KSJI Cadet Group. All rights reserved.</p>
+            <div class="social-links">
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeLoginModal()">&times;</span>
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="email" placeholder="Email or ID" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <p class="modal-text">Don't have an account? <a href="signup.html">Sign up here</a></p>
+            
+
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "prayers": [
+    {
+      "id": 1,
+      "title": "Opening Prayer",
+      "content": "Almighty God, as we gather in unity and fellowship, we seek your guidance and blessings. Grant us wisdom, courage, and compassion in all our endeavors."
+    },
+    {
+      "id": 2,
+      "title": "Closing Prayer",
+      "content": "Thank you for this time of fellowship and learning. May we carry the lessons and spirit of our gathering into the world, serving others with integrity and excellence."
+    },
+    {
+      "id": 3,
+      "title": "Prayer for the Sick",
+      "content": "We lift up to you those among us who are facing health challenges. Grant them swift recovery, comfort, and the strength to endure."
+    }
+  ]
+}

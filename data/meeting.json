@@ -1,0 +1,16 @@
+{
+  "rites": [
+    {
+      "id": 1,
+      "title": "Opening Ceremony",
+      "description": "The meeting begins with the recitation of the group pledge, followed by a moment of silence and the opening prayer.",
+      "steps": ["Assemble in formal positions", "Recite the group pledge", "Moment of silence", "Opening prayer"]
+    },
+    {
+      "id": 2,
+      "title": "Recognition of Members",
+      "description": "Current and new members are formally recognized and welcomed into the group.",
+      "steps": ["Call to order", "Introduction of new members", "Acknowledgment ceremony"]
+    }
+  ]
+}

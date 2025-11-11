@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - KSJI Cadets</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo-section">
+                <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 1rem;">
+                    <img src="images/logo.png" alt="KSJi Logo" class="logo">
+                    <span class="site-name">KSJI Cadet Portal</span>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="auth-container">
+        <div class="auth-card">
+            <h2>Member Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">Email or Cadet ID</label>
+                    <input type="text" id="email" name="email" placeholder="your.email@example.com or KSJI001" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">Login</button>
+            </form>
+
+            <!-- Added admin access section with secret passkey -->
+            <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+                <div style="text-align: center; margin-bottom: 1rem;">
+                    <p style="color: #7f8c8d; font-size: 0.85rem;">Admin Access</p>
+                </div>
+                <div class="form-group">
+                    <label for="adminPasskey">Secret Passkey</label>
+                    <input type="password" id="adminPasskey" placeholder="Enter admin passkey" name="adminPasskey">
+                </div>
+                <button type="button" class="btn btn-secondary" onclick="handleAdminLogin()" style="width: 100%;">Access Admin Panel</button>
+            </div>
+
+            <div class="auth-footer">
+                <p>Don't have an account? <a href="signup.html">Sign up here</a></p>
+                <p><a href="index.html">Back to Home</a></p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 KSJi Cadet Group. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            const result = loginUser(email, password);
+            if (result.success) {
+                window.location.href = 'dashboard.html';
+            } else {
+                alert(result.message);
+            }
+        });
+
+        function handleAdminLogin() {
+            const passkey = document.getElementById('adminPasskey').value;
+            
+            if (!passkey) {
+                alert('Please enter the admin passkey');
+                return;
+            }
+
+            const result = loginAsAdmin(passkey);
+            if (result.success) {
+                window.location.href = 'admin.html';
+            } else {
+                alert(result.message);
+                document.getElementById('adminPasskey').value = '';
+            }
+        }
+    </script>
+</body>
+</html>

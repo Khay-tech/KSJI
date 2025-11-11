@@ -1,0 +1,16 @@
+{
+  "songs": [
+    {
+      "id": 1,
+      "title": "Unity Song",
+      "lyrics": "Together we stand, hand in hand,\nUnited in purpose, across this land.\nWith hearts so true and spirits strong,\nWe sing this anthem all day long.",
+      "verse": 1
+    },
+    {
+      "id": 2,
+      "title": "Grace and Strength",
+      "lyrics": "Grace flows like a river, strength like stone,\nIn fellowship we're never alone.\nThrough joy and sorrow, we remain,\nBound by honor, free from pain.",
+      "verse": 1
+    }
+  ]
+}

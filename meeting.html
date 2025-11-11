@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Rites - KSJI Cadet Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-container">
+            <div class="logo-section">
+                <a href="index.html" style="text-decoration: none; display: flex; align-items: center; gap: 1rem;">
+                    <img src="images/logo.png" alt="KSJi Logo" class="logo">
+                    <span class="site-name">KSJI Cadet Portal</span>
+                </a>
+            </div>
+            <div class="nav-buttons">
+                <button class="btn btn-secondary" onclick="window.history.back()">Back</button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="content-container">
+        <div class="content-header">
+            <h1>Meeting Rites</h1>
+            <p>Formal procedures and protocols for our group meetings</p>
+        </div>
+
+        <div id="meetingContainer" class="collapsible-container">
+            <!-- Meeting rites will be loaded here -->
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 KSJI Cadet Group. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            loadMeetingRites();
+        });
+
+        function loadMeetingRites() {
+            fetch('data/meeting.json')
+                .then(response => response.json())
+                .then(data => {
+                    const container = document.getElementById('meetingContainer');
+                    container.innerHTML = '';
+                    
+                    data.rites.forEach(rite => {
+                        const riteItem = document.createElement('div');
+                        riteItem.className = 'collapsible-item';
+                        
+                        let stepsHTML = '';
+                        if (rite.steps && Array.isArray(rite.steps)) {
+                            stepsHTML = '<ol style="margin: 1rem 0 0 1.5rem;">';
+                            rite.steps.forEach(step => {
+                                stepsHTML += `<li style="margin-bottom: 0.5rem;">${step}</li>`;
+                            });
+                            stepsHTML += '</ol>';
+                        }
+                        
+                        riteItem.innerHTML = `
+                            <div class="collapsible-header" onclick="toggleCollapsible(this)">
+                                <h3>${rite.title}</h3>
+                                <span class="toggle-icon">+</span>
+                            </div>
+                            <div class="collapsible-content">
+                                <p>${rite.description}</p>
+                                ${stepsHTML}
+                            </div>
+                        `;
+                        container.appendChild(riteItem);
+                    });
+                })
+                .catch(error => console.error('Error loading meeting rites:', error));
+        }
+
+        function toggleCollapsible(header) {
+            const item = header.parentElement;
+            item.classList.toggle('active');
+            
+            const icon = header.querySelector('.toggle-icon');
+            icon.textContent = item.classList.contains('active') ? '−' : '+';
+        }
+    </script>
+</body>
+</html>
