@@ -20,8 +20,26 @@
             --soft-shadow: 0 6px 18px rgba(16,24,40,0.06);
         }
 
+        /* Dark mode variables */
+        .dark-mode {
+            --admin-bg-1: linear-gradient(180deg, #1a1a1a 0%, #2d2d2d 100%);
+            --admin-card: #2d3748;
+            --admin-accent: #94e646;
+            --admin-accent-2: #6c5ce7;
+            --admin-text: #f7fafc;
+            --admin-muted: #a0aec0;
+            --danger: #fc8181;
+            --muted-border: #4a5568;
+            --soft-shadow: 0 6px 18px rgba(0,0,0,0.2);
+        }
+
         /* Prevent any horizontal overflow from breaking header/footer */
-        html, body { box-sizing: border-box; overflow-x: hidden; }
+        html, body { 
+            box-sizing: border-box; 
+            overflow-x: hidden; 
+            margin: 0;
+            padding: 0;
+        }
 
         /* Page background */
         body {
@@ -31,12 +49,15 @@
             transition: background-color 220ms ease, color 220ms ease;
             -webkit-font-smoothing:antialiased;
             -moz-osx-font-smoothing:grayscale;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         /* Navbar (light) - responsive */
         .navbar {
-            background: #ffffff;
-            border-bottom: 1px solid rgba(15,23,42,0.06);
+            background: var(--admin-card);
+            border-bottom: 1px solid var(--muted-border);
             box-shadow: var(--soft-shadow);
             padding: 0.6rem 1rem;
             width: 100%;
@@ -52,13 +73,17 @@
             align-items: center;
             justify-content: space-between;
             gap: 1rem;
-            flex-wrap: wrap; /* allow wrapping on small screens */
+            flex-wrap: wrap;
             width: 100%;
             box-sizing: border-box;
         }
 
         /* ensure images can't overflow the header */
-        .logo, .logo img { max-width: 100%; height: auto; display: block; }
+        .logo, .logo img { 
+            max-width: 100%; 
+            height: auto; 
+            display: block; 
+        }
 
         .logo-section {
             display:flex;
@@ -78,7 +103,7 @@
         }
 
         .site-name {
-            color: black;
+            color: var(--admin-text);
             font-weight: 700;
             letter-spacing: 0.2px;
             font-size: 1.05rem;
@@ -98,6 +123,7 @@
             cursor: pointer;
             padding: 0.35rem;
             margin-left: 0.25rem;
+            color: var(--admin-text);
         }
 
         .nav-buttons {
@@ -114,43 +140,25 @@
             white-space: nowrap;
         }
 
-        /* Footer responsive */
-        .footer {
-            margin-top: 2rem;
-            padding: 1rem;
-            color: var(--admin-muted);
-            border-top: 1px solid rgba(15,23,42,0.04);
-            background: transparent;
+        /* Main content area */
+        main {
+            flex: 1;
             width: 100%;
-            box-sizing: border-box;
         }
 
-        .footer-content {
-            max-width: 1120px;
-            margin: 0 auto;
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            gap:1rem;
-            padding: 0 0.25rem;
-            box-sizing: border-box;
-            flex-wrap: wrap; /* allow wrapping so content doesn't get cut */
-        }
-
-        .footer-content p { margin: 0; }
-
-        /* small adjustments for table and headings */
+        /* Dashboard container */
         .dashboard-container {
             max-width: 1120px;
             margin: 1.6rem auto;
             padding: 1.4rem;
             gap: 1rem;
             box-sizing: border-box;
+            width: 100%;
         }
 
         .dashboard-header h1 {
             margin: 0 0 0.2rem 0;
-            color: black;
+            color: var(--admin-text);
             font-size: 1.6rem;
         }
         .dashboard-header p {
@@ -165,7 +173,7 @@
             padding: 1.2rem;
             border-radius: 10px;
             margin-bottom: 1rem;
-            box-shadow: 0 8px 20px rgba(16,24,40,0.04);
+            box-shadow: var(--soft-shadow);
         }
         .dashboard-card.full-width { width: 100%; }
 
@@ -180,7 +188,7 @@
             flex: 1 1 180px;
             padding: 0.8rem;
             border-radius: 8px;
-            background: linear-gradient(180deg, #ffffff, #fbfdff);
+            background: var(--admin-card);
             border: 1px solid var(--muted-border);
             text-align: center;
         }
@@ -194,6 +202,7 @@
         /* Table */
         .table-container {
             overflow: auto;
+            width: 100%;
         }
         .members-table {
             width: 100%;
@@ -206,13 +215,13 @@
             text-align: left;
             padding: 0.8rem 0.6rem;
             font-size: 0.9rem;
-            color: var(--admin-card);
+            color: var(--admin-text);
             border-bottom: 1px solid var(--muted-border);
             background: transparent;
         }
         .members-table tbody td {
             padding: 0.85rem 0.6rem;
-            border-bottom: 1px solid rgba(15,23,42,0.04);
+            border-bottom: 1px solid var(--muted-border);
             vertical-align: middle;
             font-size: 0.95rem;
         }
@@ -222,19 +231,26 @@
 
         /* Buttons (light) */
         .btn {
-            border: 1px solid rgba(11,22,33,0.06);
-            background: rgba(11,22,33,0.03);
+            border: 1px solid var(--muted-border);
+            background: var(--admin-card);
             color: var(--admin-text);
             padding: 0.45rem 0.8rem;
             border-radius: 8px;
             cursor: pointer;
             transition: transform 140ms ease, background 140ms ease, box-shadow 140ms ease;
+            font-family: inherit;
+            font-size: 0.9rem;
         }
-        .btn:hover { transform: translateY(-2px); background: rgba(11,22,33,0.05); box-shadow: 0 6px 14px rgba(11,22,33,0.04); }
+        .btn:hover { 
+            transform: translateY(-2px); 
+            background: var(--admin-accent); 
+            color: var(--admin-text);
+            box-shadow: 0 6px 14px rgba(11,22,33,0.04); 
+        }
         .btn-primary {
             background: var(--admin-text);
             border: none;
-            color: #ffffff;
+            color: var(--admin-card);
             font-weight: 700;
         }
         .btn-danger {
@@ -243,52 +259,97 @@
             color: #fff;
         }
         .btn-secondary {
-            background: #ffffff;
-            border: 1px solid rgba(15,23,42,0.06);
+            background: var(--admin-card);
+            border: 1px solid var(--muted-border);
             color: var(--admin-text);
         }
         .adminexit{
-            box-shadow: black 0px 4px 8px -2px;
+            box-shadow: 0 4px 8px -2px rgba(0,0,0,0.2);
             background: linear-gradient(180deg, #ff8a8a, var(--danger));
+            color: white;
         }
         .exportdues{
-            box-shadow: black 0px 4px 8px -2px;
-        }
-        .dark{
-            background: black;
-            color: white;
+            box-shadow: 0 4px 8px -2px rgba(0,0,0,0.2);
         }
 
         /* Form controls (light) */
         .search-box, select, input[type="text"] {
-            background: #ffffff;
+            background: var(--admin-card);
             border: 1px solid var(--muted-border);
             color: var(--admin-text);
             padding: 0.5rem 0.6rem;
             border-radius: 8px;
             min-width: 220px;
             box-shadow: 0 3px 8px rgba(16,24,40,0.02) inset;
+            font-family: inherit;
+            font-size: 0.9rem;
+        }
+
+        /* Admin controls */
+        .admin-controls {
+            margin-bottom: 1rem;
+        }
+
+        .search-section {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            align-items: center;
         }
 
         /* Small utilities */
-        .actions-container { display:flex; gap:0.6rem; flex-wrap:wrap; }
-        .dues-marking-section { display:flex; gap:0.6rem; align-items:center; flex-wrap:wrap; }
-        .form-group label { display:block; font-size:0.85rem; color:var(--admin-muted); margin-bottom:0.25rem; }
+        .actions-container { 
+            display:flex; 
+            gap:0.6rem; 
+            flex-wrap:wrap; 
+        }
+        .dues-marking-section { 
+            display:flex; 
+            gap:0.6rem; 
+            align-items:center; 
+            flex-wrap:wrap; 
+        }
+        .form-group { 
+            display: flex;
+            flex-direction: column;
+        }
+        .form-group label { 
+            display:block; 
+            font-size:0.85rem; 
+            color:var(--admin-muted); 
+            margin-bottom:0.25rem; 
+        }
 
-        /* Footer tweak */
+        /* Footer responsive */
         .footer {
             margin-top: 2rem;
             padding: 1rem;
-            text-align: center;
             color: var(--admin-muted);
-            border-top: 1px solid rgba(15,23,42,0.04);
-            background: transparent;
-            box-shadow: black 0px -2px 5px -2px;
+            border-top: 1px solid var(--muted-border);
+            background: var(--admin-card);
+            width: 100%;
+            box-sizing: border-box;
         }
 
+        .footer-content {
+            max-width: 1120px;
+            margin: 0 auto;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            gap:1rem;
+            padding: 0 0.25rem;
+            box-sizing: border-box;
+            flex-wrap: wrap;
+        }
+
+        .footer-content p { margin: 0; }
+
         /* Responsive specifics */
-        @media (max-width: 800px) {
-            .menu-toggle { display: inline-block; }
+        @media (max-width: 768px) {
+            .menu-toggle { 
+                display: inline-block; 
+            }
 
             /* Make logo row full width and push nav buttons below when collapsed */
             .logo-section {
@@ -312,24 +373,83 @@
                 flex-wrap: wrap;
             }
 
-            /* make sure long tables don't force header overflow */
-            .members-table { min-width: 0; }
-            .search-box { width: 100%; min-width: 0; }
-            .dashboard-container { padding: 1rem; }
+            /* Dashboard adjustments */
+            .dashboard-container {
+                padding: 1rem;
+                margin: 1rem auto;
+            }
 
+            .dashboard-header h1 {
+                font-size: 1.4rem;
+            }
+
+            /* Form controls */
+            .search-box, select, input[type="text"] {
+                min-width: 0;
+                width: 100%;
+            }
+
+            .search-section {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            /* Stats cards */
+            .admin-stats { 
+                flex-direction: column; 
+            }
+            .stat-card { 
+                width: 100%; 
+            }
+
+            /* Table adjustments */
+            .members-table { 
+                min-width: 0; 
+                font-size: 0.85rem;
+            }
+            
+            .members-table thead th,
+            .members-table tbody td {
+                padding: 0.6rem 0.4rem;
+            }
+
+            /* Dues marking section */
+            .dues-marking-section {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            /* Footer adjustments */
             .footer {
                 padding: 0.9rem;
-                text-align: center;
             }
             .footer-content {
                 flex-direction: column;
                 align-items: center;
                 gap: 0.4rem;
+                text-align: center;
             }
 
-            /* shrink stat cards nicely */
-            .admin-stats { flex-direction: column; }
-            .stat-card { width: 100%; }
+            /* Button adjustments */
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .actions-container {
+                flex-direction: column;
+            }
+        }
+
+        /* Medium screens */
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .dashboard-container {
+                padding: 1.2rem;
+            }
+            
+            .members-table {
+                min-width: 600px;
+            }
         }
     </style>
 </head>
@@ -435,7 +555,7 @@
             <h3>Quick Actions</h3>
             <div class="actions-container">
                 <button class="btn btn-secondary exportdues" onclick="exportToCSV()">Export Dues Records</button>
-                <button class="btn btn-secondary dark" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+                <button class="btn btn-secondary" onclick="toggleDarkMode()">Toggle Dark Mode</button>
             </div>
         </div>
     </main>
@@ -467,6 +587,13 @@
             loadMembers();
             updateStats();
             populateMemberSelect();
+            
+            // Add event listener for Enter key in search
+            document.getElementById('searchInput').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    performSearch();
+                }
+            });
         });
 
         function loadMembers(searchTerm = '') {
