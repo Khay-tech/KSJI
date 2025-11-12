@@ -1,11 +1,11 @@
 :root {
-  --primary-color: #305878;
-  --secondary-color: #c41e3a;
-  --accent-color: rgb(207, 207, 44);
-  --text-dark: #0a0c0f;
-  --text-light: #ecf0f1;
-  --border-color: #bdc3c7;
-  --bg-light: #cdd4db;
+  --primary-color: #2c5282;
+  --secondary-color: #0c1b4f;
+  --accent-color: #d1c8bd;
+  --text-dark: #1a1a1a;
+  --text-light: #f5f5f5;
+  --border-color: #d0d0d0;
+  --bg-light: #f9f7f3;
   --bg-white: #ffffff;
 }
 
@@ -92,7 +92,7 @@ main {
 }
 
 .btn-primary:hover {
-  background-color: #a01830;
+  background-color: #6d3410;
   transform: translateY(-2px);
 }
 
@@ -102,13 +102,13 @@ main {
 }
 
 .btn-secondary:hover {
-  background-color: #e6931a;
+  background-color: #c89830;
   transform: translateY(-2px);
 }
 
 /* Hero Section */
 .hero {
-  background: linear-gradient(135deg, var(--primary-color) 0%, #2a5a7a 100%);
+  background: linear-gradient(135deg, var(--primary-color) 0%, #3d6fa6 100%);
   color: var(--text-light);
   padding: 5rem 1rem;
   text-align: center;
@@ -142,6 +142,7 @@ main {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-top: 4px solid var(--secondary-color);
 }
 
 .section-card:hover {
@@ -155,7 +156,7 @@ main {
 }
 
 .section-card p {
-  color: #7f8c8d;
+  color: #666;
   margin-bottom: 1.5rem;
 }
 
@@ -179,6 +180,7 @@ main {
   width: 90%;
   max-width: 400px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  border-top: 4px solid var(--secondary-color);
 }
 
 .close {
@@ -215,7 +217,7 @@ main {
 .modal-content input:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(26, 58, 82, 0.1);
+  box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.1);
 }
 
 .modal-text {
@@ -250,6 +252,7 @@ main {
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 450px;
+  border-top: 4px solid var(--secondary-color);
 }
 
 .auth-card h2 {
@@ -281,7 +284,7 @@ main {
 .form-group input:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(26, 58, 82, 0.1);
+  box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.1);
 }
 
 .auth-footer {
@@ -325,7 +328,7 @@ main {
 }
 
 .dashboard-header p {
-  color: #7f8c8d;
+  color: #666;
   font-size: 1.1rem;
 }
 
@@ -341,6 +344,7 @@ main {
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-left: 4px solid var(--secondary-color);
 }
 
 .dashboard-card h3 {
@@ -363,7 +367,7 @@ main {
 }
 
 .info-text {
-  color: #7f8c8d;
+  color: #666;
   font-size: 0.9rem;
   margin-top: 1rem !important;
 }
@@ -405,7 +409,7 @@ main {
 .search-box:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 0 3px rgba(26, 58, 82, 0.1);
+  box-shadow: 0 0 0 3px rgba(44, 82, 130, 0.1);
 }
 
 .admin-stats {
@@ -421,6 +425,7 @@ main {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+  border-top: 3px solid var(--secondary-color);
 }
 
 .stat-card h4 {
@@ -474,18 +479,18 @@ main {
 }
 
 .btn-action:hover {
-  background-color: #e6931a;
+  background-color: #c89830;
 }
 
 .btn-danger {
-  background-color: #e74c3c;
+  background-color: #c85a54;
   color: var(--text-light);
   padding: 0.5rem 1rem;
   font-size: 0.9rem;
 }
 
 .btn-danger:hover {
-  background-color: #c0392b;
+  background-color: #a64a47;
 }
 
 /* Added styles for the dues marking section */
@@ -498,6 +503,7 @@ main {
   background-color: var(--bg-light);
   border-radius: 8px;
   border: 1px solid var(--border-color);
+  border-left: 4px solid var(--secondary-color);
 }
 
 .dues-marking-section .form-group {
@@ -557,7 +563,7 @@ body.dark-mode {
 }
 
 body.dark-mode .navbar {
-  background-color: #0f0f0f;
+  background-color: #1a3a52;
 }
 
 body.dark-mode .modal-content {
@@ -572,7 +578,7 @@ body.dark-mode .auth-card {
 }
 
 body.dark-mode .members-table thead {
-  background-color: #0f0f0f;
+  background-color: #1a3a52;
 }
 
 /* Dark Mode for dues marking section */
@@ -658,7 +664,7 @@ body.dark-mode .dues-marking-section {
 }
 
 .content-header p {
-  color: #7f8c8d;
+  color: #666;
   font-size: 1.1rem;
 }
 
@@ -676,6 +682,7 @@ body.dark-mode .dues-marking-section {
   overflow: hidden;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
+  border-left: 4px solid var(--secondary-color);
 }
 
 .collapsible-item:hover {
@@ -693,7 +700,7 @@ body.dark-mode .dues-marking-section {
 }
 
 .collapsible-header:hover {
-  background-color: rgba(26, 58, 82, 0.05);
+  background-color: rgba(44, 82, 130, 0.05);
 }
 
 .collapsible-header h3 {
@@ -769,7 +776,7 @@ body.dark-mode .dues-marking-section {
 .pledge-text p:first-child,
 .anthem-text p:first-child {
   font-style: italic;
-  color: #7f8c8d;
+  color: #666;
 }
 
 /* Responsive */
