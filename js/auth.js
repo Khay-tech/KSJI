@@ -1,6 +1,6 @@
 // Authentication utility functions
 
-const ADMIN_PASSKEY = "KSJI2024SECRET"
+const ADMIN_PASSKEY = "Cadetadmin832"
 
 function hashPassword(password) {
   return btoa(password)
