@@ -728,6 +728,7 @@ body.dark-mode .dues-marking-section {
   display: block;
   padding: 0 1.5rem 1.5rem 1.5rem;
   max-height: 1000px;
+  overflow-y: scroll;
 }
 
 .collapsible-content p {
