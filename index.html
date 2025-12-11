@@ -24,7 +24,7 @@
         <section class="hero">
             <div class="hero-content">
                 <h1>Welcome to KSJI Cadet Portal</h1>
-                <p class="motto">"Excellence in Character and Service"</p>
+                <!-- <p class="motto">"Excellence in Character and Service"</p> -->
             </div>
         </section>
 
@@ -57,12 +57,10 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2025 KSJI Cadet Group. All rights reserved.</p>
-            <!-- <div class="social-links">
-                <a href="#">Facebook</a>
-                <a href="#">Twitter</a>
-                <a href="#">Instagram</a>
-            </div> -->
+            <p>&copy; <span id="year"></span> KSJI Cadet. All rights reserved.</p>
+            <script>
+                document.getElementById('year').textContent = new Date().getFullYear();
+            </script>
         </div>
     </footer>
 

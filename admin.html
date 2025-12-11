@@ -567,7 +567,10 @@
 
     <footer class="footer">
         <div class="footer-content">
-            <p>&copy; 2025 KSJI Cadet Group. All rights reserved.</p>
+            <p>&copy; <span id="year"></span> KSJI Cadet. All rights reserved.</p>
+            <script>
+                document.getElementById('year').textContent = new Date().getFullYear();
+            </script>
         </div>
     </footer>
 
